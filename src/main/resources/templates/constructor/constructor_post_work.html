@@ -1,0 +1,34 @@
+ <!-- 🔸 Main Content (touches both sidebars) -->
+  <!DOCTYPE html>
+<html lang="en" th:replace="~{constructor/constructor_dashboard::parent(~{::#content},~{::title})}">
+   <head>
+    <title>Post works</title>
+  </head>
+ <body>
+    <div class="flex-1  md:ml-64 md:mr-64 bg-gray-50" id="content">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">My Work Requests</h3> 
+    <table class="w-full border-collapse border border-gray-200">
+       <thead class="bg-teal-100"> 
+         <tr> 
+            <th class="border border-gray-300 px-3 py-2 text-left">ID</th>
+             <th class="border border-gray-300 px-3 py-2 text-left">Region</th> 
+             <th class="border border-gray-300 px-3 py-2 text-left">Labourers</th> 
+             <th class="border border-gray-300 px-3 py-2 text-left">Start Date</th> 
+             <th class="border border-gray-300 px-3 py-2 text-left">Status</th>
+              <th class="border border-gray-300 px-3 py-2 text-left">Mediator</th> 
+            </tr> </thead> <tbody> <tr th:each="req : ${workRequests}"> 
+               <td class="border border-gray-300 px-3 py-2" th:text="${req.id}"></td> 
+               <td class="border border-gray-300 px-3 py-2" th:text="${req.region}"></td>
+                <td class="border border-gray-300 px-3 py-2" th:text="${req.numLabourers}"></td>
+                 <td class="border border-gray-300 px-3 py-2" th:text="${req.startDate}"></td>
+                  <td class="border border-gray-300 px-3 py-2" th:text="${req.status}"></td> 
+                  <td class="border border-gray-300 px-3 py-2" th:text="${req.mediator == null ?'Not Assigned': 'Assigned'  }"></td>
+                </tr> <tr th:if="${#lists.isEmpty(workRequests)}"> <td colspan="6" class="text-center py-4 text-gray-500">No work requests yet.</td>
+                </tr> </tbody> </table>
+    </div>
+
+ </body>
+   
+</div>
+</html>
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{common/base::parent(~{::#content},~{::title})}">
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="content" class="relative w-full h-screen">
+      <!-- Fullscreen Background Image -->
+      <img data-th-src="@{'/images/l1.png'}" 
+           alt="Labour Bridge"
+           class="w-full h-full object-cover" />
+
+      <!-- Overlay for tagline -->
+      <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col  mt-10 items-center text-center">
+        <h1 class="text-black text-5xl  font-bold mb-4 drop-shadow-lg">
+          Labour Bridge
+        </h1>
+        <p class="text-black text-xl md:text-2xl italic drop-shadow-md">
+          Connecting Jobs to Labourers
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

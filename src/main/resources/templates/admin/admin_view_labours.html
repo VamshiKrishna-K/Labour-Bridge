@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Labourers List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+<header class="bg-blue-700 text-white py-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
+        <h1 class="text-2xl font-semibold">Admin Dashboard</h1>
+        <nav class="space-x-4">
+            <a href="/admin_dashboard" class="hover:underline">Back to Dashboard</a>
+            <a href="/logout" class="hover:underline">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="p-6 max-w-6xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">Registered Labourers</h2>
+
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+        <thead>
+            <tr class="bg-gray-200 text-left">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">Labour Name</th>
+                <th class="py-2 px-4 border-b">Age</th>
+                <th class="py-2 px-4 border-b">Daily Wage</th>
+                <th class="py-2 px-4 border-b">Phone</th>
+                <th class="py-2 px-4 border-b">Mediator Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="labour : ${labourers}" class="hover:bg-gray-50">
+                <td class="py-2 px-4 border-b" th:text="${labour.id}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.name}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.age}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.dailyWage}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.phone}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.mediator.name}"></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

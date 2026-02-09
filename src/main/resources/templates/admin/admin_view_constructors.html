@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Labourers List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+<header class="bg-blue-700 text-white py-4">
+    <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
+        <h1 class="text-2xl font-semibold">Admin Dashboard</h1>
+        <nav class="space-x-4">
+            <a href="/admin_dashboard" class="hover:underline">Back to Dashboard</a>
+            <a href="/logout" class="hover:underline">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="p-6 max-w-6xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">Registered Constructor</h2>
+
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">Name</th>
+                <th class="py-2 px-4 border-b">Phone</th>
+                <th class="py-2 px-4 border-b">Email</th>
+                 <th class="py-2 px-4 border-b">Enabled</th>
+                <th class="py-2 px-4 border-b">Approval</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="Constructors : ${constructors}">
+                <td class="py-2 px-4 border-b" th:text="${Constructors.id}"></td>
+                <td class="py-2 px-4 border-b" th:text="${Constructors.name}"></td>   
+                <td class="py-2 px-4 border-b" th:text="${Constructors.phone}"></td>
+                <td class="py-2 px-4 border-b" th:text="${Constructors.email}"></td>
+                <td class="py-2 px-4 border-b" th:text="${Constructors.enabled}"></td>
+                <td><a  th:href="@{'/approval/' + ${Constructors.id}}"><button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Approve</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

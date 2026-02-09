@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{common/base::parent(~{::#content},~{::title})}">
+  <head>
+    <title>Contact</title>
+  </head>
+  <body>
+    <div id="content" class="m-2">
+    <section id="contact" class="relative w-full min-h-screen text-black-500 bg-[#B4C6FC]">
+  
+
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#C4D7FF] h-32 w-full rounded-lg"></div>
+
+  <!-- wrapper -->
+  <div class="relative p-5 lg:px-20 flex flex-col md:flex-row items-center justify-center">
+
+    <!-- Social Media -->
+    <div class="w-full md:w-1/2 p-5 md:px-0 mx-5">
+      <div class="bg-#FDE8E8 border-black-500 w-full lg:w-1/2 h-full p-5 pt-8 rounded-lg shadow-md">
+        <h3 class="text-2xl font-semibold mb-5 text-gray-800">
+          My Social Media
+        </h3>
+        <!-- list -->
+        <div class="flex flex-col gap-3">
+          <a href="#" class="flex items-center hover:text-white hover:bg-blue-500 p-2 rounded">
+            <!-- Github SVG -->
+            Github
+          </a>
+          <a href="#" class="flex items-center hover:text-white hover:bg-red-500 p-2 rounded">
+            Linkedin
+          </a>
+          <a href="#" class="flex items-center hover:text-white hover:bg-red-500 p-2 rounded">
+            Youtube
+          </a>
+          <a href="#" class="flex items-center hover:text-white hover:bg-red-500 p-2 rounded">
+            Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Me -->
+    <form action="#" class="w-full md:w-1/2  p-6 bg-[#E5EDFF] rounded-lg shadow-md">
+      <h2 class="text-2xl pb-3 font-semibold text-gray-800">
+        Send Message
+      </h2>
+      <div>
+        <div class="flex flex-col mb-3">
+          <label for="name">Name</label>
+          <input 
+            type="text" id="name" 
+            class="px-3 py-2  border border-gray-300 focus:border-red-500 focus:outline-none rounded"
+            autocomplete="off"
+          >
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="email">Email</label>
+          <input 
+            type="text" id="email" 
+            class="px-3 py-2 border border-gray-300 focus:border-red-500 focus:outline-none rounded"
+            autocomplete="off"
+          >
+        </div>
+        <div class="flex flex-col mb-3">
+          <label for="message">Message</label>
+          <textarea 
+            rows="4" id="message" 
+            class="px-3 py-2 border border-gray-300 focus:border-red-500 focus:outline-none rounded"
+          ></textarea>
+        </div>
+      </div>
+      <button type="button" 
+        onclick="location.href='/'"
+        class=" text-white bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+    Send
+</button>
+
+
+      </div>
+    </form>
+  </div>
+</section>
+
+
+      </div>
+  </body>
+</html>

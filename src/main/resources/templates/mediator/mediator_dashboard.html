@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:fragment="parent(content,title)"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:replace="${title}">Mediator Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-gray-100 font-sans h-screen overflow-hidden" x-data="{ openSidebar: false }">
+
+  <!-- 🔹 Fixed Top Navbar -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-md">
+    <div class="flex justify-between items-center px-6 py-3">
+      <div class="flex items-center gap-3">
+        <!-- Mobile Sidebar Toggle -->
+        <button @click="openSidebar = !openSidebar" class="md:hidden focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        <h1 class="text-xl font-semibold tracking-wide">Mediator Dashboard</h1>
+      </div>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="hover:underline">Home</a>
+        <a href="/logout" class="hover:underline">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🔹 Layout Container -->
+  <div class="flex pt-16 h-full">
+
+    <!-- 🔸 Left Sidebar (Fixed) -->
+    <aside
+      class="fixed inset-y-0 left-0 z-30 w-64 bg-gradient-to-b from-cyan-100 to-teal-50 shadow-md transform transition-transform duration-200
+             md:translate-x-0"
+      :class="{ '-translate-x-full': !openSidebar }">
+
+      <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+        <h2 class="text-lg font-bold text-teal-700">Menu</h2>
+        <button @click="openSidebar = false" class="md:hidden p-1 rounded hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="p-4 space-y-2 text-sm">
+        <a href="/mediatorMain" class="block px-4 py-2 rounded-lg hover:bg-teal-100">Dashboard</a>
+        <a href="/mediator_labourer_list" class="block px-4 py-2 rounded-lg hover:bg-teal-100">Labours List</a>
+        <a href="/mediator_register_labourer" class="block px-4 py-2 rounded-lg hover:bg-teal-100">Labour Registration</a>
+        <a href="/mediator_assign_labourers" class="block px-4 py-2 rounded-lg hover:bg-teal-100">Labour Assign</a>
+        <a href="/mediator_view_requests" class="block px-4 py-2 rounded-lg hover:bg-teal-100">Constructor Requests</a>
+        <a href="/mediator_payments" class="block px-4 py-2 rounded-lg hover:bg-teal-100">Payments</a>
+      </nav>
+    </aside>
+
+    <!-- 🔸 Main Content (Scrollable) -->
+    <main
+      class="flex-1 ml-0 md:ml-64 mr-0 lg:mr-64 overflow-y-auto p-6 bg-gray-50 h-[calc(100vh-4rem)] transition-all duration-300">
+      <div th:replace="${content}"></div>
+    </main>
+
+    <!-- 🔸 Right Sidebar (Fixed on large screens only) -->
+    <aside class="hidden lg:flex flex-col w-64 bg-gradient-to-b from-cyan-50 to-teal-50 shadow-inner p-4 fixed inset-y-0 right-0">
+      <h2 class="text-lg font-bold text-teal-700 mb-4">Quick Info</h2>
+      <a href="/mediator_profile" class="hover:underline">Profile</a>
+      <hr class="my-4">
+    </aside>
+
+  </div>
+
+</body>
+</html>

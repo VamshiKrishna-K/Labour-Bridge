@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{common/base::parent(~{::#content},~{::title})}">
+  <head>
+    <title>Registrations</title>
+  </head>
+  <body>
+    <div id="content">
+     <h1 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">
+  Registration
+</h1>
+ 
+<form 
+data-th-action="@{'/do-register'}"
+method="post" 
+data-th-object="${userForm}"
+novalidate
+reset
+class="max-w-sm mx-auto mb-5">
+<div data-th:replace="common/message :: message"></div>
+  <div class="mb-5">
+   <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+   <input type="text" id="name" th:field="*{name}"  class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" required />
+  <p 
+  data-th-if="${#fields.hasErrors('name')}"
+  data-th-errors="*{name}"
+  class="text-red-600 px-2">Error</p>
+  </div>
+  <div class="mb-5">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+    <input type="email" id="email" th:field="*{email}" class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" placeholder="abc123@gmail.com" required />
+  <p 
+  data-th-if="${#fields.hasErrors('email')}"
+  data-th-errors="*{email}"
+  class="text-red-600 px-2">Error</p>
+  </div>
+  <div class="mb-5">
+    <label for="phone"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone No</label>
+    <input type="text" id="phone" th:field="*{phone}"class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" required />
+ <p 
+  data-th-if="${#fields.hasErrors('phone')}"
+  data-th-errors="*{phone}"
+  class="text-red-600 px-2">Error</p>
+  </div>
+ <div class="mb-5">
+  <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+    Role
+  </label>
+  <select
+    id="role"
+    required
+    th:field="*{role}" 
+    class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+           focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+           dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+  >
+    <option value="" disabled selected>Select your role</option>
+    <option value="Mediator">Mediator</option>
+    <option value="Constructor">Constructor</option>
+  
+  </select>
+</div>
+
+  <div class="mb-5">
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+    <input type="password" id="password" th:field="*{password}"  class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" required />
+  <p 
+  data-th-if="${#fields.hasErrors('password')}"
+  data-th-errors="*{password}"
+  class="text-red-600 px-2">Error</p>
+  </div>
+  <div class="mb-5">
+    <label for="repeat-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Repeat password</label>
+    <input type="password" id="repeat-password"  th:field="*{repeatPassword}" class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light" required />
+    <div class="text-red-600 text-sm mt-1" th:if="${passwordError}" th:text="${passwordError}"></div>
+  </div>
+  <div class="flex items-start mb-5">
+    <div class="flex items-center h-5">
+      <input id="terms" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+    </div>
+  <div class="mb-5">
+  <label for="terms" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+    I agree with the following terms and conditions:
+    <ol class="list-decimal list-inside space-y-2 text-gray-700 dark:text-gray-300 mt-2">
+      <li>All users must provide accurate and verifiable information during registration.</li>
+      <li>Both mediators and constructors must maintain professionalism and respect in all interactions.</li>
+      <li>All payments and agreements should be handled transparently through the platform.</li>
+      <li>Users must comply with local labour laws, safety regulations, and ethical practices.</li>
+      <li>Any misuse of the platform, including fraud or misconduct, will result in suspension or permanent ban.</li>
+    </ol>
+  </label>
+</div>
+
+
+  </div>
+  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register new account</button>
+</form>
+
+    <div class="flex justify-center items-center">
+  <button type="button" 
+          class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 
+                 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 
+                 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 
+                 text-center me-2 mb-2">
+     <a href="/register" >Reset</a>
+  </button>
+</div>
+
+
+</div>
+    
+  </body>
+</html>

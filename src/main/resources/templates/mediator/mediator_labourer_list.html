@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="~{mediator/mediator_dashboard::parent(~{::#content},~{::title})}"
+>>
+<head>
+   
+    <title>Labourers List</title>
+   
+</head>
+<body id="content">
+
+
+
+<main class="p-6 max-w-6xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">Registered Labourers</h2>
+
+    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="py-2 px-4 border-b">ID</th>
+                <th class="py-2 px-4 border-b">Name</th>
+                <th class="py-2 px-4 border-b">Age</th>
+                <th class="py-2 px-4 border-b">Phone</th>
+                <th class="py-2 px-4 border-b">Daily Wage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="labour : ${labourers}">
+                <td class="py-2 px-4 border-b" th:text="${labour.id}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.name}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.age}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.phone}"></td>
+                <td class="py-2 px-4 border-b" th:text="${labour.dailyWage}"></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>
