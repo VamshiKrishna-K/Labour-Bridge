@@ -1,4 +1,5 @@
 **Labour Bridge**
+
 Labour Bridge is a web-based platform that connects labourers directly with employers/contractors, reducing dependency on middlemen and ensuring transparent, verified hiring.
 <img width="1899" height="900" alt="Screenshot (52)" src="https://github.com/user-attachments/assets/f4d14fca-ec3e-4348-9682-c52b1bb8fd41" />
 
