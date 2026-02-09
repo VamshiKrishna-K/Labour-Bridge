@@ -26,16 +26,8 @@ Labour Bridge provides a role-based system where labourers, employers, and admin
 - Database: MySQL 
 
 
-Project Type
-
-Academic MVP (Minimum Viable Product)
-
-Future Scope
-
-Chat system
-
-Location-based job matching
-
-Payment integration
-
-Ratings and reviews
+**Future Scope**
+- Chat system
+- Location-based job matching
+- Payment integration
+- Ratings and reviews
